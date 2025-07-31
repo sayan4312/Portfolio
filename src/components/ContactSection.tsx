@@ -94,14 +94,29 @@ const ContactSection = () => {
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+      // Debug logging
+      console.log('EmailJS Config:', {
+        serviceId: serviceId ? `${serviceId.substring(0, 8)}...` : 'MISSING',
+        templateId: templateId ? `${templateId.substring(0, 8)}...` : 'MISSING',
+        publicKey: publicKey ? `${publicKey.substring(0, 8)}...` : 'MISSING'
+      });
+
+      // Validate all required fields are present
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('Missing EmailJS configuration. Please check your environment variables.');
+      }
+
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
+        name: formData.name,           
+        email: formData.email,         
         message: formData.message,
-        to_email: 'sayandas4312@gmail.com', // Your email
+        to_email: 'sayandas4312@gmail.com', 
       };
 
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Sending email with params:', templateParams);
+      
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('EmailJS Success:', result);
       
       toast({
         title: "Message Sent Successfully!",
@@ -119,10 +134,15 @@ const ContactSection = () => {
         ease: 'power2.out'
       });
     } catch (error) {
-      console.error('Failed to send email:', error);
+      console.error('EmailJS Error Details:', error);
+      console.error('Error Type:', typeof error);
+      console.error('Error Message:', error?.message);
+      console.error('Error Status:', error?.status);
+      console.error('Error Text:', error?.text);
+      
       toast({
         title: "Failed to Send Message",
-        description: "Something went wrong. Please try again or contact me directly.",
+        description: `Something went wrong: ${error?.message || error?.text || 'Unknown error'}. Please try again or contact me directly.`,
         variant: "destructive",
       });
     } finally {
