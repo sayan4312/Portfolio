@@ -41,25 +41,25 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: 'Bridge Between Investor & Business People',
-      description: 'A sophisticated platform connecting investors with promising startups, featuring real-time analytics and AI-powered matching algorithms.',
+      description: 'A sophisticated platform connecting investors with promising startups, featuring real-time chat, proposal notifications, and AI-powered matching algorithms.',
       image: '/images/projects/investor-bridge-platform.png',
-      tech: ['React', 'Node.js', 'AI/ML', 'WebSocket'],
+      tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'JWT Auth'],
       githubUrl: 'https://github.com/sayan4312/Bridge',
       featured: true
     },
     {
       title: 'Placement Cell Management System',
-      description: 'Comprehensive management system for educational institutions to streamline placement processes with automated workflows.',
+      description: 'Comprehensive management system for educational institutions with role-based authentication, eligibility filtering, and resume upload capabilities.',
       image: '/images/projects/placement-management-system.png',
-      tech: ['React', 'TypeScript', 'PostgreSQL', 'Redux'],
+      tech: ['React.js', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT Tokens', 'REST API'],
       githubUrl: 'https://github.com/sayan4312/PlacementCell',
       featured: false
     },
     {
       title: 'Finance Tracker with Budget Goals',
-      description: 'Personal finance management app with intelligent budget recommendations, expense tracking, and goal visualization.',
+      description: 'Personal finance management app with expense tracking, budget analysis, goal setting, and interactive data visualization charts.',
       image: '/images/projects/finance-tracker-app.png',
-      tech: ['React Native', 'Chart.js', 'Firebase', 'ML'],
+      tech: ['React.js', 'Chart.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT Auth'],
       githubUrl: 'https://github.com/sayan4312/ExpenseHive',
       featured: false
     }
@@ -96,7 +96,7 @@ const ProjectsSection = () => {
               className="glass-card rounded-2xl overflow-hidden group hover:shadow-glow-primary transition-all duration-500 hover:-translate-y-2"
             >
               {/* Project Image */}
-                            {/* Project Image */}
+                            
               <div className="relative overflow-hidden aspect-video">
                 <img 
                   src={project.image}

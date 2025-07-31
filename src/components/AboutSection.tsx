@@ -91,6 +91,7 @@ const AboutSection = () => {
     { icon: Layers, name: '3D & Graphics', description: 'Spline, Basic Three.js Integration' },
     { icon: Palette, name: 'Performance', description: 'Code Optimization, Core Web Vitals, SEO-friendly apps' },
     { icon: Code, name: 'Web Tech', description: 'JWT Authentication, Role-Based Access, CRUD Operations' },
+
   ];
 
   return (
