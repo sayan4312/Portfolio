@@ -71,7 +71,14 @@ const Navigation = () => {
               >
                 Contact
               </button>
-              <Button variant="default" size="sm">
+              <Button 
+                variant="default" 
+                size="sm"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  contactSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Hire Me
               </Button>
             </div>
@@ -118,7 +125,12 @@ const Navigation = () => {
               >
                 Contact
               </button>
-              <Button variant="glow" size="lg" className="mobile-menu-item">
+              <Button 
+                variant="glow" 
+                size="lg" 
+                className="mobile-menu-item"
+                onClick={() => scrollToSection('contact')}
+              >
                 Hire Me
               </Button>
               

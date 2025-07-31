@@ -111,11 +111,26 @@ const HeroSection = () => {
           </p>
           
           <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="hero" className="group">
+            <Button 
+              variant="hero" 
+              size="hero" 
+              className="group"
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Hire Me
               <ArrowDown className="ml-2 group-hover:translate-y-1 transition-transform" size={20} />
             </Button>
-            <Button variant="glass" size="hero">
+            <Button 
+              variant="glass" 
+              size="hero"
+              onClick={() => {
+                const projectsSection = document.getElementById('projects');
+                projectsSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               View Projects
             </Button>
           </div>
