@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic Portfolio Design System - Sayan Das */
+
+@layer base {
+  :root {
+    /* Core Background & Text */
+    --background: 240 10% 3.9%;
+    --foreground: 210 40% 98%;
+
+    /* Card System */
+    --card: 240 10% 3.9%;
+    --card-foreground: 210 40% 98%;
+    --glass-card: 240 10% 8%;
+
+    /* Primary Neon Colors */
+    --primary: 197 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+    --primary-glow: 197 100% 65%;
+    --primary-dim: 197 80% 35%;
+
+    /* Secondary Neon */
+    --secondary: 267 100% 65%;
+    --secondary-foreground: 240 10% 3.9%;
+    --secondary-glow: 267 100% 75%;
+    --secondary-dim: 267 80% 45%;
+
+    /* Accent Colors */
+    --accent: 328 100% 60%;
+    --accent-foreground: 240 10% 3.9%;
+    --accent-glow: 328 100% 70%;
+
+    /* Muted & Borders */
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 64.9%;
+    --border: 240 5% 26%;
+    --input: 240 6% 10%;
+    --ring: 197 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(197 100% 50%), hsl(267 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(267 100% 65%), hsl(328 100% 60%));
+    --gradient-card: linear-gradient(135deg, hsl(240 10% 8% / 0.8), hsl(240 10% 12% / 0.9));
+    --gradient-glow: linear-gradient(135deg, hsl(197 100% 50% / 0.3), hsl(267 100% 65% / 0.3));
+
+    /* Glow Effects */
+    --glow-primary: 0 0 20px hsl(197 100% 50% / 0.5);
+    --glow-secondary: 0 0 20px hsl(267 100% 65% / 0.5);
+    --glow-accent: 0 0 20px hsl(328 100% 60% / 0.5);
+    --glow-soft: 0 4px 20px hsl(197 100% 50% / 0.1);
+    --glow-intense: 0 0 40px hsl(197 100% 50% / 0.8);
+
+    /* Glass Effect */
+    --glass-bg: hsl(240 10% 8% / 0.1);
+    --glass-border: hsl(240 5% 26% / 0.3);
+    --glass-blur: blur(10px);
+
+    /* Animation Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-glow: box-shadow 0.3s ease;
+
+    --radius: 0.75rem;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Sidebar (keep existing) */
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 240 5% 95.9%;
+    --sidebar-primary: 197 100% 50%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 5% 15.9%;
+    --sidebar-accent-foreground: 240 5% 95.9%;
+    --sidebar-border: 240 5% 15.9%;
+    --sidebar-ring: 197 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glass Card Effect */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glow-soft);
+  }
+
+  /* Glow Button */
+  .glow-button {
+    background: var(--gradient-primary);
+    box-shadow: var(--glow-primary);
+    transition: var(--transition-glow);
+  }
+
+  .glow-button:hover {
+    box-shadow: var(--glow-intense);
+    transform: translateY(-2px);
+  }
+
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Pulse Glow */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulseGlow {
+    from { box-shadow: var(--glow-primary); }
+    to { box-shadow: var(--glow-intense); }
+  }
+
+  /* Text Glow */
+  .text-glow {
+    text-shadow: 0 0 10px hsl(197 100% 50% / 0.8);
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    background: var(--gradient-primary);
+    box-shadow: var(--glow-primary);
+  }
+
+  /* Preloader */
+  .preloader {
+    background: radial-gradient(circle, hsl(240 10% 3.9%), hsl(240 10% 1%));
+  }
+}
