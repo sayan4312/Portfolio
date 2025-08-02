@@ -55,13 +55,19 @@ const HeroSection = () => {
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Spline 3D Background - Full Page */}
-      <div ref={splineRef} className="absolute inset-0 z-0">
+      <div ref={splineRef} className="absolute inset-0 z-0 overflow-hidden">
         <iframe 
-          src='https://my.spline.design/orb-nLGmJqEJYTuFNjZGvRotPYPM/' 
+          src='https://my.spline.design/holoblobs-EZk14rZDL8oVmLUNECA8VfDt/' 
           frameBorder='0' 
-          width='100%' 
-          height='100%'
-          className="w-full h-full object-cover"
+          width='120%' 
+          height='120%'
+          className="absolute object-cover"
+          style={{
+            top: '-10%',
+            left: '-10%',
+            transform: 'scale(1.1)',
+            pointerEvents: 'none'
+          }}
           loading="lazy"
           title="3D Background Animation"
           onError={() => console.log('Spline iframe failed to load')}
